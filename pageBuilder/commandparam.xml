@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<afm:commands xmlns:afm="http://www.afmsoftware.com/paramManager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.afmsoftware.com/paramManager paramManager.xsd ">
+	<afm:command name="create">
+		<afm:params>
+			<afm:param name="id" required="false"/>
+			<afm:param name="active" required="false"/>
+		</afm:params>
+	</afm:command>
+	<afm:command name="modify">
+		<afm:params>
+			<afm:param name="id" required="true"></afm:param>
+			<afm:param name="active" required="false"></afm:param>
+		</afm:params>
+	</afm:command>
+	<afm:command name="delete">
+		<afm:params>
+			<afm:param name="id" required="true"></afm:param>
+			<afm:param name="active" required="false"></afm:param>
+		</afm:params>
+	</afm:command>
+	<afm:command name="activate">
+		<afm:params>
+			<afm:param name="id" required="true"></afm:param>
+			<afm:param name="active" required="true"></afm:param>
+		</afm:params>
+	</afm:command>
+	<afm:command name="view">
+		<afm:params>
+			<afm:param name="id" required="true"></afm:param>
+			<afm:param name="active" required="false"></afm:param>
+		</afm:params>
+	</afm:command>
+	<afm:command name="tag">
+		<afm:params>
+			<afm:param name="id" required="true"></afm:param>
+		</afm:params>
+	</afm:command>
+</afm:commands>

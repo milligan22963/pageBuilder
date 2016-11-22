@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="install.xsl" type="text/xsl" ?>
+<p:install xmlns:p="http://www.afmsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.afmsoftware.com install.xsd ">
+  <p:database name="DMC" codefile="database.php" version="1.0.0.0">
+  <p:table name="xyz" codefile="query.php" version="1.2.3.4" />
+  </p:database>
+</p:install>

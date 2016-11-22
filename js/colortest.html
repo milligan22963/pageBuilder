@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ColorTest</title>
+<style>
+#colorpicker
+{
+}
+#silly
+{
+	top: 0;
+	left: 500;
+}
+</style>
+  <link rel="stylesheet" href="http://127.0.0.1/calfn8/js/jQuery/themes/dark-hive/jquery.ui.all.css" type="text/css" />
+  <link rel="stylesheet" href="http://127.0.0.1/calfn8/js/jQuery/themes/dark-hive/jquery.ui.core.css" type="text/css" />
+  <link rel="stylesheet" href="http://127.0.0.1/calfn8/js/jQuery/themes/dark-hive/jquery.ui.button.css" type="text/css" />
+  <link rel="stylesheet" href="http://127.0.0.1/calfn8/js/jQuery/themes/dark-hive/jquery.ui.dialog.css" type="text/css" />
+  <link rel="stylesheet" href="http://127.0.0.1/calfn8/js/jQuery/themes/dark-hive/jquery.ui.theme.css" type="text/css" />
+<script language="javascript" type="text/javascript" src="http://127.0.0.1/calfn8/js/common.js" ></script>
+<script language="javascript" type="text/javascript" src="http://127.0.0.1/calfn8/js/color.js" ></script>
+<script language="javascript" type="text/javascript" src="http://127.0.0.1/calfn8/js/Mouser.js" ></script>
+<script type="text/javascript">
+
+function onReady()
+{
+	var colorPicker = new ColorPicker('colorpicker');
+
+	colorPicker.drawColorPicker();
+
+	var colorPicker2 = new ColorPicker('colorpicker2');
+	colorPicker2.drawColorPicker();
+}
+
+</script>
+</head>
+<body onload="javascript:onReady();">
+<div>
+<label>Hello: </label><input type="text"></input><br/>
+<div id="silly" class="ui-dialog">
+<label>Colors:</label>
+<div id="colorpicker" class="ui-widget ui-widget-content ui-corner-all" >
+</div><div id="colorpicker2" class="ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" style="display: block; z-index: 1002; outline: 0px none; position: absolute; height: auto; width: 480px; top: 294px; left: 716px;">
+</div></div></div>
+</body>
+</html>

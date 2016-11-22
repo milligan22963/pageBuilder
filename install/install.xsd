@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.afmsoftware.com"
+xmlns="http://www.afmsoftware.com"
+elementFormDefault="qualified">
+ <xs:complexType name="tableAttr">
+ 	<xs:attribute name="name" type="xs:string"></xs:attribute>
+ 	<xs:attribute name="codefile" type="xs:string"></xs:attribute>
+ 	<xs:attribute name="version" type="xs:string"></xs:attribute>
+ 	<xs:attribute name="dependency" type="xs:string"></xs:attribute>
+ </xs:complexType>
+  <xs:complexType name="databaseType">
+  <xs:sequence>
+   	  <xs:element name="table" type="tableAttr" maxOccurs="unbounded"/>
+    </xs:sequence>
+ 	<xs:attribute name="name" type="xs:string"></xs:attribute>
+ 	<xs:attribute name="codefile" type="xs:string"></xs:attribute>
+ 	<xs:attribute name="version" type="xs:string"></xs:attribute>
+  </xs:complexType>
+ <xs:complexType name="installType">
+	 <xs:sequence>
+	 	<xs:element name="database" type="databaseType" maxOccurs="unbounded"/>
+	 </xs:sequence>
+ </xs:complexType>
+<xs:element name="install" type="installType"/>
+</xs:schema>

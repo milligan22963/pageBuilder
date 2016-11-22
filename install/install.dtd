@@ -1,0 +1,12 @@
+
+<!ELEMENT install (database)>
+<!ELEMENT database (table)>
+<!ELEMENT table (#PCDATA)>
+
+<!ATTLIST database name CDATA #REQUIRED
+ codefile CDATA #REQUIRED
+ version CDATA #REQUIRED>
+<!ATTLIST table name CDATA #REQUIRED
+ codefile CDATA #REQUIRED
+ version CDATA #REQUIRED>
+ 

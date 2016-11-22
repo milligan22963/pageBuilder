@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="install.xsl" type="text/xsl" ?>
+<p:install xmlns:p="http://www.afmsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.afmsoftware.com install.xsd ">
+  <p:database name="ignore" codefile="database.php" version="1.0.0.0">
+	  <p:table name="users" codefile="users.php" version="1.0.0.0" dependency="activity"/>
+	  <p:table name="site" codefile="site.php" version="1.0.0.0" dependency="none"/>
+	  <p:table name="email" codefile="email.php" version="1.0.0.0" dependency="users"/>
+	  <p:table name="activity" codefile="activity.php" version="1.0.0.0" dependency="none"/>
+	  <p:table name="extension" codefile="extension.php" version="1.0.0.0" dependency="none"/>
+	  <p:table name="content" codefile="content.php" version="1.0.0.0" dependency="none" />
+	  <p:table name="posts" codefile="posts.php" version="1.0.0.0" dependency="content" />
+	  <p:table name="fonts" codefile="fonts.php" version="1.0.0.0" dependency="none" />
+	  <p:table name="text" codefile="text.php" version="1.0.0.0" dependency="none" />
+  </p:database>
+</p:install>

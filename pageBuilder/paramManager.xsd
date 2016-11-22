@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.afmsoftware.com/paramManager" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:afm="http://www.afmsoftware.com/paramManager">
+ <xs:complexType name="paramAttr">
+ 	<xs:attribute name="name" type="xs:string"></xs:attribute>
+ 	<xs:attribute name="required" type="xs:boolean"></xs:attribute>
+ </xs:complexType>
+ <xs:complexType name="paramSet">
+	 <xs:sequence>
+	 	<xs:element name="param" type="afm:paramAttr" maxOccurs="unbounded"/>
+	 </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="commandType">
+  <xs:sequence>
+   	  <xs:element name="params" type="afm:paramSet" maxOccurs="unbounded"/>
+    </xs:sequence>
+ 	<xs:attribute name="name" type="xs:string"></xs:attribute>
+  </xs:complexType>
+ <xs:complexType name="commandSet">
+	 <xs:sequence>
+	 	<xs:element name="command" type="afm:commandType" maxOccurs="unbounded"/>
+	 </xs:sequence>
+ </xs:complexType>
+<xs:element name="commands" type="afm:commandSet"></xs:element>
+</xs:schema>

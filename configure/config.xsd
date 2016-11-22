@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.afmsoftware.com/config"
+xmlns="http://www.afmsoftware.com/config"
+elementFormDefault="qualified">
+ <xs:complexType name="optionSet">
+ 	<xs:attribute name="name" type="xs:string"></xs:attribute>
+ 	<xs:attribute name="value" type="xs:string"></xs:attribute>
+ </xs:complexType>
+ <xs:complexType name="settings">
+	 <xs:sequence>
+	 	<xs:element name="option" type="optionSet" maxOccurs="unbounded"/>
+	 </xs:sequence>
+ </xs:complexType>
+<xs:element name="database" type="settings"/>
+<xs:element name="site" type="settings" />
+<xs:element name="configuration">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="database"/>
+      <xs:element name="site"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+</xs:schema>

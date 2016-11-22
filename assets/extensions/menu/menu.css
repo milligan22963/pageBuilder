@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+div.usermenu, div.adminmenu,
+nav.usermenu, nav.adminmenu
+{
+  	border-radius: 10px;
+}
+
+ul.usermenu, ul.adminmenu
+{
+	padding-left: 8px;
+	list-style-type: none;
+	font-family: "Times New Roman", times, serif;
+	font-style: normal;
+	font-size: 14pt;
+}
+
+li.usermenu, li.adminmenu
+{
+	color: grey;
+}
+
+a.usermenu, a.adminmenu
+{
+	color: grey;
+	text-decoration: none;
+}
+
+a.usermenu:hover, a.adminmenu:hover
+{
+	color: darkgrey;
+	text-decoration: underline;
+}
+
+[usermenuselected]
+{
+	font-style: italic;
+}

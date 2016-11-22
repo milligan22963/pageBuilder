@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:extension xmlns:p="http://www.afmsoftware.com/extension" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.afmsoftware.com/extension ../../../pageBuilder/extension.xsd ">
+  <p:name>MenuExtension</p:name>
+  <p:displayname>Menu</p:displayname>
+  <p:description>The menu extension for pages</p:description>
+  <p:stylesheet>menu.css</p:stylesheet>
+  <p:images>images</p:images>
+  <p:javascript>js</p:javascript>
+  <p:codefile>code.php</p:codefile>
+  <p:installarea>install</p:installarea>
+  <p:installfile>install.php</p:installfile>
+  <p:website>www.afmsoftware.com</p:website>
+  <p:updateLink>www.afmsoftware.com/calfn8d/menu/update.php</p:updateLink>
+  <p:extensionType>MENU</p:extensionType>
+</p:extension>

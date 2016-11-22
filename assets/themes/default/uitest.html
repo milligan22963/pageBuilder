@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="http://localhost/~dwm/monaqua/assets/themes/default/uitest.css" type="text/css" />
+</head>
+<body >
+<div id="main">
+	<div  id="header" class="ui-widget ui-widget-header ui-corner-all">	
+		<label id="headertitle">Generation X</label>
+		<label id="headertagline">Another day, another site.</label>
+	</div>
+	<div id="bodywidgetpre" class="ui-widget ui-widget-content ui-corner-all">
+		<div class="extensiontitle">Menu</div>
+		<hr class="extensionline"/>
+		<div class="usermenu">
+			<ul 		 id="menuextension" 		  class="usermenu">
+				<li 			 usermenuselected="true"     	class="usermenu"><span><a class="usermenu"    	href="http://localhost/~dwm/Gen/index.php?option=home">home</a></span></li>
+			</ul>
+		</div>
+	</div>
+	<div id="body" class="ui-widget ui-widget-content ui-corner-all">
+		<canvas id="storyboard">		</canvas>
+	</div>
+	<div id="bodywidgetpost" class="ui-widget ui-widget-content ui-corner-all"><div class="extensiontitle">Login</div><hr class="extensionline"/>
+		<div class="loginextension">
+			<form id="userloginext" class="login" method="post" action="javascript:loginUser('http://localhost/~dwm/Gen/admin/index.php', 'loginUserName', 'loginUserPassword');">
+			  <label id="loginUserNameLbl">User Name:
+			  <input type="text" name="loginUserName" id="loginUserName" /></label>
+			  <label id="loginUserPasswordLbl">Password:
+			  <input type="password" id="loginUserPassword" name="loginUserPassword"/></label>
+			  <input id="loginUserButton" type="submit" value="Login" />
+			</form>
+			<hr class="extensionline"/>
+			<a href="http://localhost/~dwm/Gen/admin/index.php?option=register">Register</a>
+		</div>
+	</div>
+	<div id="footer" class="ui-widget ui-widget-footer ui-corner-all">
+		<a id="footerauthor" href="http://www.afmsoftware.com/">AFM Software</a>
+	</div>
+</div>
+</body>
+</html>

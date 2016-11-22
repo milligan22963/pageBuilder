@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:admin xmlns:p="http://www.afmsoftware.com/admin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.afmsoftware.com/admin ./admin.xsd ">
+  <p:module option="login" code="login.php" enabled="true"/>
+  <p:module option="register" code="register.php" enabled="true"/>
+  <p:module option="theme" code="selecttheme.php" enabled="true"/>
+  <p:module option="extension" code="manageextensions.php" enabled="true"/>
+</p:admin>

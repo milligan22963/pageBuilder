@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+div.loginextension
+{
+	margin: 5px;
+	width: 80%;
+	font-family: "Times New Roman", times, serif;
+	font-style: normal;
+}
+
+form.login
+{
+}
+
+label#loginUserPasswordLbl, label#loginUserNameLbl
+{
+	padding: 5px 5px 5px 0px;
+	margin: 5px 5px 5px 0px;
+}
+label#loginUserNamelbl, label#loginUserPasswordlbl
+{
+	padding: 5px 5px 5px 0px;
+	margin: 5px 5px 5px 0px;
+}
+input#loginUserName, input#loginUserPassword, input#loginUserButton
+{
+  	border-radius: 5px;
+}
+input#loginUserName, input#loginUserPassword
+{
+	border-color: white;
+	background: lightgray;
+	height: 20px;
+	vertical-align: middle;
+}
+
+input#loginUserButton
+{
+	margin: 5px 5px 5px 0px;
+}
+
+a#loginlink
+{
+	color: #f48444;
+	clear: both;
+	display: block;
+	text-decoration: none;
+	float: right;	
+}
+label#loginUserWarning
+{
+	display: block;
+	clear: both;
+	text-align: center;
+	vertical-align: bottom;
+	visibility: hidden;
+	color: red;
+}

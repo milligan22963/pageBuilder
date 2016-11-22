@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.afmsoftware.com/admin" xmlns:afm="http://www.afmsoftware.com/admin" elementFormDefault="qualified">
+ <xs:complexType name="moduleAttr">
+ 	<xs:attribute name="option" type="xs:string"></xs:attribute>
+ 	<xs:attribute name="code" type="xs:string"></xs:attribute>
+ 	<xs:attribute name="enabled" type="xs:boolean"></xs:attribute>
+ </xs:complexType>
+ <xs:complexType name="adminSet">
+	 <xs:sequence>
+	 	<xs:element name="module" type="afm:moduleAttr" maxOccurs="unbounded"/>
+	 </xs:sequence>
+ </xs:complexType>
+<xs:element name="admin" type="afm:adminSet"></xs:element>
+</xs:schema>

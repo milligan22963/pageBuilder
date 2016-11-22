@@ -1,0 +1,133 @@
+
+body
+{
+	margin: 0;
+	border: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/*
+ * the bulk of the page where the content goes
+ * includes the following:
+ * header
+ * body (container)
+ * footer
+ */
+section#main
+{
+	padding: 5px;
+	margin: 0 auto;
+	width: 100% auto;
+	height: 100%;
+}
+
+/*
+ * the header of the page
+ */
+header#outer
+{
+	background: none;
+	background-color: darkgrey;
+	padding: 0px 10px 0px 10px;
+	text-align: left;
+	color: grey;
+}
+
+img#headerImage
+{
+	width: auto;
+	height: 80px;
+	margin: 0 auto;
+}
+label#headertitle
+{
+	font-family: Georgia, serif;
+	font-weight: bold;
+	font-size: 24pt;
+}
+
+label#headertagline
+{
+	margin: 20px;
+	float: right;
+	vertical-align: bottom;
+	text-align: right;
+	font-family: Times, serif;
+	font-style: italic;
+	font-size: 12pt;
+}
+
+/*
+ * the bulk of the page where the content goes
+ * includes the following:
+ * body widget pre
+ * body primary area (body section)
+ * body widget post
+ */
+section#bodycontainer
+{
+  	float: left;
+  	overflow: hidden;
+  	background: darkgrey;
+  	display: inline-flex;
+  	margin: 5px;
+  	width: 100%;
+}
+
+section#bodysection
+{
+  	background: darkgrey;
+	width: 100%;
+	height: 100%;
+}
+
+section#bodywidgetpre, section#bodywidgetpost
+{
+	visibility: hidden;
+}
+
+footer#footer
+{
+    padding: 10px 10px 10px 10px;
+  	overflow: hidden;
+	text-align: right;
+}
+
+a#footerauthor
+{
+	font-style: italic;
+	font-family: Times, serif;
+	font-size: 12pt;
+}
+
+section#footerwidget
+{
+  	margin: 10px 0 10px 0;
+  	padding: 10px 10px 10px 10px;
+  	width: 99%;
+  	background-color: black;
+  	overflow: hidden;
+  	border-radius: 10px;
+  	box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+}
+
+hr.extensionline
+{
+	color: grey;
+	height: 2px;
+}
+	
+divx.extensiontitle
+{
+	background: grey;
+	padding: 3px 0px 3px 3px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: Georgia, serif;
+	font-weight: bold;
+	font-size: 8pt;
+	font-variant: small-caps;
+  	border-radius: 10px;
+  	box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+}

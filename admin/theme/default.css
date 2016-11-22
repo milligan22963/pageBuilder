@@ -1,0 +1,149 @@
+@CHARSET "UTF-8";
+body
+{
+	margin: 0;
+	border: 0;
+	background-color: black;
+	color: pink;
+}
+
+div#main
+{
+	margin: 0 auto;
+	margin-top: 20px;
+	padding: 20px 20px 10px 20px;
+	width: 1080px;
+	height: 100%;
+	background-color: #0000FF;
+}
+
+div#body, div#bodywidgetpre, div#bodywidgetpost
+{
+  float: left;
+  position: relative;
+  padding: 1em 0 1em 0;
+  padding: 1%;
+  overflow: hidden;
+  background: gray;
+  width: 120px;
+  border: 2px;
+  border-color: darkgray;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+  -moz-box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+}
+
+div#body
+{
+	width: 740px;
+	margin: 10px 10px 10px 10px;
+}
+
+div#bodywidgetpre
+{
+	float: left;
+	margin: 10px auto;
+}
+
+div#bodywidgetpost
+{
+	float: right;
+	margin: 10px auto;
+}
+
+div#header, div#footer
+{
+	margin: 10px 0 10px 0;
+  	padding: 10px 10px 10px 0;
+	background-color: gray;
+	clear: both;
+  	overflow: hidden;
+  	border-radius: 10px;
+  	-moz-border-radius: 10px;
+  	-webkit-border-radius: 10px;
+  	box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+  	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+  	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+	text-align: right;
+	width: 99%;
+}
+
+div#header
+{
+	text-align: left;
+  background: gray;
+  border: 2px;
+  border-color: darkgray;
+  border-style: solid;
+  border-width: 2px;
+}
+	
+div#footerwidget
+{
+  	margin: 10px 0 10px 0;
+  	padding: 10px 10px 10px 0;
+  	width: 99%;
+  	background-color: black;
+  	overflow: hidden;
+  	border-radius: 10px;
+  	-moz-border-radius: 10px;
+  	-webkit-border-radius: 10px;
+  	box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+  	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+  	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+}
+
+div.headertitle
+{
+  	padding: 0px 0px 0px 10px;
+	text-align: left;
+}
+
+div.headerdescr
+{
+	clear: both;
+  	padding: 10px 0px 0px 0px;
+	text-align: right;
+}
+	
+div.widget
+{
+	background-color: black;
+	color: blue;
+  	border-radius: 10px 0px 10px 0px;
+  	-moz-border-radius: 10px 0px 10px 0px;
+  	-webkit-border-radius: 10px 0px 10px 0px;
+  	box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+  	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+  	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+}
+hr.extensionline
+{
+	color: grey;
+	height: 2px;
+}
+	
+div.extensiontitle
+{
+	background: grey;
+	padding: 3px 0px 3px 3px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: Georgia, serif;
+	font-weight: bold;
+	font-size: 8pt;
+	font-variant: small-caps;
+  	border-radius: 10px;
+  	-moz-border-radius: 10px;
+  	-webkit-border-radius: 10px;
+  	box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+  	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+  	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 50, 0.7);
+}
+
+ 

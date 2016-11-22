@@ -1,0 +1,54 @@
+html, body
+{
+	background-color: #DFDFDF;
+}
+
+.draggable
+{
+	cursor: move;
+}
+.highlight
+{
+	background-color: #000000;
+	color: #FF0000;
+}
+
+.dialog
+{
+	border: 2px;
+	border-color: #000000;
+	width: 375px;
+	height: 200px;
+}
+
+.hidden
+{
+	display: none;
+}
+
+.show
+{
+	z-index: 9999;
+	display: inline;
+}
+
+#colorwheel
+{
+	color: white;
+	width: 80px;
+	height: 25px;
+}
+
+#cw_opacity
+{
+	  width: 40px;
+}
+
+.file
+{
+	font-family: Times, serif;
+	font-style: italic;
+	font-size: 12pt;
+	border: 2px;
+	color: blue;
+}

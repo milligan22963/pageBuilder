@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.afmsoftware.com/extension" xmlns:afm="http://www.afmsoftware.com/extension" elementFormDefault="qualified">
+	 <xs:simpleType name="ExtensionEnumType">
+	    <xs:restriction base="xs:normalizedString">
+	        <xs:enumeration value="MENU"/>
+	        <xs:enumeration value="LOGIN"/>
+	        <xs:enumeration value="WIDGET"/>
+	        <xs:enumeration value="GALLERY"/>
+	        <xs:enumeration value="GADGET"/>
+	        <xs:enumeration value="UNKNOWN"/>
+	        <xs:enumeration value="ANIMATION"/>
+	    </xs:restriction>
+	 </xs:simpleType>
+	 <xs:complexType name="extensionSet">
+		 <xs:sequence>
+		 	<xs:element name="name" type="xs:string" maxOccurs="1" />
+		 	<xs:element name="displayname" type="xs:string"
+		 		maxOccurs="1" />
+		 	<xs:element name="description" type="xs:string"
+		 		maxOccurs="1" />
+		 	<xs:element name="multiinstance" type="xs:string"
+		 		minOccurs="0" maxOccurs="1" />
+		 	<xs:element name="stylesheet" type="xs:string"
+		 		maxOccurs="1" />
+		 	<xs:element name="images" type="xs:string" maxOccurs="1" />
+		 	<xs:element name="javascript" type="xs:string"
+		 		maxOccurs="1" />
+		 	<xs:element name="codefile" type="xs:string" maxOccurs="1" />
+		 	<xs:element name="installarea" type="xs:string"
+		 		maxOccurs="1" />
+		 	<xs:element name="installfile" type="xs:string"
+		 		maxOccurs="1" />
+		 	<xs:element name="website" type="xs:string" maxOccurs="1" />
+		 	<xs:element name="updateLink" type="xs:string"
+		 		maxOccurs="1" />
+     		<xs:element name="extensionType" type="afm:ExtensionEnumType" minOccurs="1" maxOccurs="1"/>
+		 </xs:sequence>
+	 </xs:complexType>
+	<xs:element name="extension" type="afm:extensionSet"></xs:element>
+</xs:schema>

@@ -1,0 +1,71 @@
+<html><head>
+<link href="favicon.ico" rel="shortcut icon">                
+                <title>AquaSim</title>
+                <meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" href="http://localhost/~dwm/monaqua/aquasim.css" rel="stylesheet">
+                    <link type="text/css" href="http://localhost/~dwm/monaqua/assets/themes/default/default.css" rel="stylesheet">
+                    <link type="text/css" href="http://localhost/~dwm/monaqua/js/jQuery/ui/jquery-ui.min.css" rel="stylesheet">
+                    <link type="text/css" href="http://localhost/~dwm/monaqua/js/jQuery/ui/jquery-ui.structure.min.css" rel="stylesheet">
+                    <link type="text/css" href="http://localhost/~dwm/monaqua/js/jQuery/ui/jquery-ui.theme.min.css" rel="stylesheet">
+                    <link type="text/css" href="http://localhost/~dwm/monaqua/assets/extensions/login/login.css" rel="stylesheet">
+                    <link type="text/css" href="http://localhost/~dwm/monaqua/assets/extensions/menu/menu.css" rel="stylesheet">
+                    <link type="text/css" href="http://localhost/~dwm/monaqua/assets/extensions/monitor/monitor.css" rel="stylesheet">
+                <script src="http://localhost/~dwm/monaqua/js/jQuery/jquery-2.2.0.min.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/js/jQuery/ui/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/login/js/login.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/menu/js/menu.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/js/common.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/toolbox/js/tools.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/js/popup.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/js/popmenu.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/js/snap/snap.svg.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/monitor/js/monitor.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/monitor/js/alarmObject.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/monitor/js/alarms.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/monitor/js/sensorObject.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/monitor/js/sensors.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/monitor/js/controllers.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/monitor/js/controllerObject.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/monitor/js/tankObject.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/monitor/js/tanks.js" type="text/javascript" language="javascript"></script>
+<script src="http://localhost/~dwm/monaqua/assets/extensions/monitor/js/detailView.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" language="javascript">
+			var g_sensorUpdates =
+			{
+				actionUrl: "http://localhost/~dwm/monaqua/index.php",
+				extensionName: "MonitorExtension1",
+				option: "ModifySensor"
+			}; 	
+</script>
+</head>
+<body>
+	<section id="main">
+	<header class="ui-widget ui-widget-header ui-corner-all" id="outer">
+				<img src="http://localhost/~dwm/monaqua/assets/themes/default/images/aquasim_logo.png" id="headerImage">
+			<label id="headertagline">Monitoring your aquariums when you can't...</label>
+						<div class="loginextensionhdr">
+			  		<form action="javascript:loginUser('http://localhost/~dwm/monaqua/admin/index.php', 'loginUserName', 'loginUserPassword');" method="post" class="loginhdr" id="userloginext">
+			  		    <label id="loginUserNameLblhdr">User Name:
+			  			<input type="text" id="loginUserName" name="loginUserName"></label>
+			  			<label id="loginUserPasswordLblhdr">Password:
+			  		    <input type="password" name="loginUserPassword" id="loginUserPassword"></label>
+			  		    <input type="submit" value="Login" id="loginUserButtonhdr">
+			  		</form>
+			  							<hr class="extensionline">
+			  		<a href="http://localhost/~dwm/monaqua/admin/index.php?option=register">Register</a>			
+			  		</div>
+	</header>
+	<section id="bodycontainer">	<section class="ui-widget ui-widget-content ui-corner-all" id="bodywidgetpre"><div class="extensiontitle">Menu</div><hr class="extensionline"><nav class="usermenu"><ul class="usermenu" id="menuextension">    	<li class="usermenu"><span><a href="http://localhost/~dwm/monaqua/index.php?option=home" class="usermenu">home</a></span></li>    	<li class="usermenu" usermenuselected="true"><span><a href="http://localhost/~dwm/monaqua/index.php?option=Details" class="usermenu">Details</a></span></li></ul></nav><div class="extensiontitle Monitor">Monitor</div><hr class="extensionline"><nav class="usermenuMonitor"><ul class="usermenuMonitor" id="extensionMonitor">    	<li class="usermenuMonitorAlarm"><span><a href="javascript:manageAlarms('http://localhost/~dwm/monaqua/index.php', 'MonitorExtension1', 'Alarms', 'monitorworkarea')" class="usermenuMonitorAlarm">Alarms</a></span></li>    	<li class="usermenuMonitorSensor"><span><a href="javascript:manageSensors('http://localhost/~dwm/monaqua/index.php', 'MonitorExtension1', 'Sensors', 'monitorworkarea')" class="usermenuMonitorSensor">Sensors</a></span></li>    	<li class="usermenuMonitorController"><span><a href="javascript:manageControllers('http://localhost/~dwm/monaqua/index.php', 'MonitorExtension1', 'Controllers', 'monitorworkarea')" class="usermenuMonitorController">Controllers</a></span></li>    	<li class="usermenuMonitorAquarium"><span><a href="javascript:manageAquariums('http://localhost/~dwm/monaqua/index.php', 'MonitorExtension1', 'Aquariums', 'monitorworkarea')" class="usermenuMonitorAquarium">Aquariums</a></span></li></ul></nav>	</section>	<section class="ui-widget ui-widget-content ui-corner-all" id="bodysection">			<section id="monitor">
+				<p>Welcome to AquaSim - Monitoring your aquariums when you can't...</p>
+				<section id="monitortab">				<div class="detailTank activeAlarm"><span class="detailTank">Sample Aquarium</span><svg height="400px" width="100%"><image xlink:href="http://localhost/~dwm/monaqua/assets/extensions/monitor/images/salt.svg" height="100%" width="100%" y="0" x="0"/><image class="draggable" sensorid="1" xlink:href="http://localhost/~dwm/monaqua/assets/extensions/monitor/images/Thermometer.svg" height="30%" width="10%" y="60" x="90"/><image class="draggable" sensorid="2" xlink:href="http://localhost/~dwm/monaqua/assets/extensions/monitor/images/Thermometer.svg" height="30%" width="10%" y="60" x="130"/><desc>Created with Snap</desc><defs/></svg><svg height="50px" width="100%"><image xlink:href="http://localhost/~dwm/monaqua/assets/extensions/monitor/images/lowtemp.svg" height="100%" width="40px" y="0" x="20"/><image xlink:href="http://localhost/~dwm/monaqua/assets/extensions/monitor/images/water.svg" height="100%" width="40px" y="0" x="80"/></svg></div><div class="detailTank"><span class="detailTank">Sample Aquarium</span><svg height="400px" width="100%"><image xlink:href="http://localhost/~dwm/monaqua/assets/extensions/monitor/images/fresh.svg" height="100%" width="100%" y="0" x="0"/></svg><svg height="50px" width="100%"/></div><br><br>
+				</section>            <div class="dialog hidden" id="monitorpopup">
+            	<div id="monitordetailview">
+            	</div>
+            </div>
+            <div class="dialog hidden" id="monitorworkarea">
+            	<form id="monitorsubmit"></form>
+            </div>			</section>	</section>	<section class="ui-widget ui-widget-content ui-corner-all" id="bodywidgetpost">	</section>		</section> <!-- end of body container -->
+		<footer class="ui-widget ui-widget-header ui-corner-all" id="footer">			<a href="http://www.afmsoftware.com/" id="footerauthor">AFM Software</a>
+		</footer>
+		</section> <!-- end of main section -->
+</body></html>

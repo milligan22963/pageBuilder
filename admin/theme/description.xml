@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:theme xmlns:p="http://www.afmsoftware.com/theme" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.afmsoftware.com/theme ../../pageBuilder/theme.xsd ">
+  <p:name>Admin</p:name>
+  <p:description>The admin theme for this package</p:description>
+  <p:stylesheet>default.css</p:stylesheet>
+  <p:images>images</p:images>
+  <p:javascript>js</p:javascript>
+  <p:functions>themeulator.php</p:functions>  
+  <p:headerfile>header.php</p:headerfile>
+  <p:bodyfile>body.php</p:bodyfile>
+  <p:bodywidgetfile display="post">body_wdg.php</p:bodywidgetfile>
+  <p:footerfile>footer.php</p:footerfile>
+  <p:footerwidgetfile display="post">footer_wdg.php</p:footerwidgetfile>
+</p:theme>

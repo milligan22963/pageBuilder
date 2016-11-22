@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.afmsoftware.com/scripts"
+xmlns="http://www.afmsoftware.com/scripts"
+elementFormDefault="qualified">
+ <xs:attributeGroup name="pathAttr">
+ 	<xs:attribute name="name" type="xs:string"></xs:attribute>
+ 	<xs:attribute name="path" type="xs:string"></xs:attribute>
+ </xs:attributeGroup>
+ <xs:simpleType name='browser'>
+    <xs:restriction base='xs:string'>
+      <xs:enumeration value='IE'>
+        <xs:annotation>
+            <xs:documentation>Internet Explorer</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='FF'>
+        <xs:annotation>
+            <xs:documentation>FireFox</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='OP'>
+        <xs:annotation>
+            <xs:documentation>Opera</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='CR'>
+        <xs:annotation>
+            <xs:documentation>Chrome</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='SF'>
+        <xs:annotation>
+            <xs:documentation>Safari</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='NO'>
+        <xs:annotation>
+            <xs:documentation>Not needed</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+</xs:simpleType>
+ <xs:attributeGroup name="scriptAttr">
+   <xs:attribute name="version" type="xs:string"></xs:attribute>
+   <xs:attribute name="shortname" type="xs:string"></xs:attribute>
+   <xs:attribute name="codefile" type="xs:string"></xs:attribute>
+   <xs:attribute name="pathId" type="xs:string"></xs:attribute>
+   <xs:attribute name="conditional" type="browser" default="NO"></xs:attribute>
+   <xs:attribute name="flatten" type="xs:boolean" default="false"></xs:attribute>
+ </xs:attributeGroup>
+ <xs:element name="dependency">
+   <xs:complexType>
+     <xs:attribute name="id" type="xs:string"></xs:attribute>
+   </xs:complexType>
+ </xs:element>
+ <xs:element name="css">
+   <xs:complexType>
+     <xs:attribute name="id" type="xs:string"></xs:attribute>
+   </xs:complexType>
+ </xs:element>
+ <xs:element name="cssfile">
+   <xs:complexType>
+     <xs:attribute name="pathId" type="xs:string"></xs:attribute>
+     <xs:attribute name="name" type="xs:string"></xs:attribute>
+     <xs:attribute name="codefile" type="xs:string"></xs:attribute>
+   </xs:complexType>
+ </xs:element>
+ <xs:element name="scriptpath">
+   <xs:complexType>
+     <xs:attributeGroup ref="pathAttr" />
+   </xs:complexType>
+ </xs:element>
+ <xs:element name="csspath">
+   <xs:complexType>
+     <xs:attributeGroup ref="pathAttr" />
+   </xs:complexType>
+ </xs:element>
+ <xs:element name="script">
+   <xs:complexType>
+     <xs:sequence>
+       <xs:element name="dependency" maxOccurs="unbounded"/>
+       <xs:element name="css" maxOccurs="unbounded"/>
+     </xs:sequence>
+   <xs:attributeGroup ref="scriptAttr"></xs:attributeGroup>
+   </xs:complexType>
+ </xs:element>
+ <xs:complexType name="scriptsType">
+	 <xs:sequence>
+	 	<xs:element name="scriptpath" maxOccurs="unbounded"/>
+	 	<xs:element name="csspath" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element name="cssfile" maxOccurs="unbounded" minOccurs="0"/>
+	 	<xs:element name="script" maxOccurs="unbounded"/>
+	 </xs:sequence>
+ </xs:complexType>
+<xs:element name="scripts" type="scriptsType"/>
+</xs:schema>

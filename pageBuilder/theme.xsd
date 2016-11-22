@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.afmsoftware.com/theme" xmlns:afm="http://www.afmsoftware.com/theme" elementFormDefault="qualified">
+ 	<xs:complexType name="widgetFile">
+	  <xs:simpleContent>
+	    <xs:extension base="xs:string">
+	      <xs:attribute name="display" type="xs:string" />
+	    </xs:extension>
+	  </xs:simpleContent>
+	</xs:complexType>
+	 <xs:complexType name="themeSet">
+		 <xs:sequence>
+		 	<xs:element name="name" type="xs:string" maxOccurs="1"/>
+		 	<xs:element name="description" type="xs:string" maxOccurs="1"/>
+		 	<xs:element name="stylesheet" type="xs:string" maxOccurs="1"/>
+		 	<xs:element name="images" type="xs:string" maxOccurs="1"/>
+		 	<xs:element name="javascript" type="xs:string" maxOccurs="1"/>
+		 	<xs:element name="functions" type="xs:string" maxOccurs="1"/>
+		 	<xs:element name="headerfile" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		 	<xs:element name="headerwidgetfile" type="afm:widgetFile" minOccurs="0" maxOccurs="1"/>
+		 	<xs:element name="bodyfile" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		 	<xs:element name="bodywidgetfile" type="afm:widgetFile" minOccurs="0" maxOccurs="1"/>
+		 	<xs:element name="footerfile" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		 	<xs:element name="footerwidgetfile" type="afm:widgetFile" minOccurs="0" maxOccurs="1"/>
+		 </xs:sequence>
+	 </xs:complexType>
+	<xs:element name="theme" type="afm:themeSet"></xs:element>
+</xs:schema>
