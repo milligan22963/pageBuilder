@@ -5,7 +5,6 @@
   <p:scriptpath name="TOOLS" path="toolbox/js"></p:scriptpath>
   <p:scriptpath name="BASE" path="js"></p:scriptpath>
   <p:scriptpath name="PAGEBUILDER" path="pageBuilder/js"></p:scriptpath>
-  <p:scriptpath name="TINY_MCE" path="js/tiny_mce" />
   <p:scriptpath name="SNAP" path="js/snap" />
     
   <p:csspath name="JUI" path="js/jQuery/ui" />
@@ -46,7 +45,5 @@
   <p:script codefile="excanvas.compiled.js" pathId="BASE"
   	shortname="EXCANVAS" version="1.0" conditional="IE">
   </p:script>
-  <p:script codefile="tiny_mce.js" pathId="TINY_MCE" shortname="TMCE" version="3.4.8" />
-  <p:script codefile="tiny_configure.js" pathId="BASE" shortname="TMCE_CONFIG" version="1.0"/>
   <p:script codefile="snap.svg.js" pathId="SNAP" shortname="SNAP" version="1.0"/>
 </p:scripts>
