@@ -46,7 +46,12 @@ function DialogField(objectId, name, action, fieldType, validationType, minLengt
 
 		return fieldObj;
 	};
-	
+
+	this.addFieldObj = function(fieldObj)
+	{
+		this.addChild(fieldObj);
+	};
+
 	this.addFieldBreak = function()
 	{
 		var fieldObj = new DialogField(null, null, null, 'break', null, 0, 0);
@@ -499,7 +504,7 @@ function showPopup(popupObj, timeout)
 		}
 	};
 
-	this.addChildSection = function (parentId, fieldId, fieldName, action)
+	this.addChildSection = function (parentId, fieldId, fieldName, action, children)
 	{
 		var formEntry = '<section id="' + fieldId + '">';
 		
@@ -518,6 +523,12 @@ function showPopup(popupObj, timeout)
 		else
 		{
 			$(parentId).append(formEntry);			
+		}
+
+		// now append the children
+		for (var child = 0; child < children.length; child++)
+		{
+//			$('#' + fieldId).append('<label>test</label>');			
 		}
 
 		// assign the action of the section if any
@@ -890,7 +901,7 @@ function showPopup(popupObj, timeout)
 				break;
 				case 'childsection':
 				{
-					this.addChildSection(parentId, fieldId, fieldName, fieldArray[index].action);
+					this.addChildSection(parentId, fieldId, fieldName, fieldArray[index].action, fieldArray[index].children);
 				}
 				break;
 				case 'color_picker':

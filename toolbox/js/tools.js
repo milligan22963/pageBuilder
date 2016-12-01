@@ -231,3 +231,56 @@ function disableLink(e)
   e.preventDefault();
   return false;
 }
+
+/*
+ * vertical - true if vertical, false otherwise
+ * elementId - the element to toggle
+ * expandId - the element to expand when toggled hidden
+ * contractedValue - the desired size when not expanded
+ */
+function toggle(vertical, elementId, expandId, contractedValue)
+{
+	var elementInstance = document.getElementById(elementId);
+	
+	if (elementInstance != null)
+	{
+		var displayValue = elementInstance.style.display;
+		
+		/* Assume it is visible if it is currently set to null */
+		if ((displayValue == null) || (displayValue != 'none'))
+		{
+			elementInstance.style.display = 'none';
+			
+			if (expandId != null)
+			{
+				var expandElement = document.getElementById(expandId);
+				
+				if (vertical == true)
+				{
+					expandElement.style.height = "100%";
+				}
+				else
+				{
+					expandElement.style.width = "100%";
+				}
+			}
+		}
+		else
+		{
+			elementInstance.style.display = "";
+			if (expandId != null)
+			{
+				var expandElement = document.getElementById(expandId);
+				
+				if (vertical == true)
+				{
+					expandElement.style.height = contractedValue;
+				}
+				else
+				{
+					expandElement.style.width = contractedValue;
+				}
+			}
+		}
+	}
+}
