@@ -133,7 +133,7 @@ class Data extends ParamManager
 		$systemObject = getSystemObject();
 		$dbInstance = $systemObject->getDbInstance();
 		
-		$queryString = "select id, timeStamp from " . $this->getFullTableName() . " order by timeStamp desc limit 1";
+		$queryString = "select id from " . $this->getFullTableName() . " order by id desc limit 1";
 		$queryId = 0;
 		$dbInstance->issueCommand($queryString, $queryId);
 		$resultSet = $dbInstance->getResult($queryId);
