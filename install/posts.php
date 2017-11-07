@@ -83,7 +83,7 @@ function createPostsTable($replaceTable)
         $tableColumns[0]->setPrimaryKey(true);
 
         $tableColumns[1] = new DBTableColumn();
-        $tableColumns[1]->setColumnName("contentId");
+        $tableColumns[1]->setColumnName("content_id");
         $tableColumns[1]->setColumnType("int");
         $tableColumns[1]->setTypeLength(11);
         $tableColumns[1]->setAutoIncrement(false);
@@ -102,7 +102,7 @@ function createPostsTable($replaceTable)
         $tableColumns[3]->setDefaultValue("b'0'");
         
         $tableColumns[4] = new DBTableColumn();
-        $tableColumns[4]->setColumnName("postTimeStamp");
+        $tableColumns[4]->setColumnName("time_stamp");
         $tableColumns[4]->setColumnType("TIMESTAMP");
         $tableColumns[4]->setAllowNull(false);
       
@@ -111,7 +111,7 @@ function createPostsTable($replaceTable)
         {
         	/* Add the default content to the home page */
         	$queryString = "insert into " . $systemObject->getConfigurationData(SITE_TABLE_PREFIX);
-        	$queryString .= TABLE_NAME . "(`contentId`, `data`, `active`, `postTimeStamp`) values ('1', 'Your first post', b'1', CURRENT_TIMESTAMP);";
+        	$queryString .= TABLE_NAME . "(`content_id`, `data`, `active`, `time_stamp`) values ('1', 'Your first post', b'1', CURRENT_TIMESTAMP);";
         	$dbInstance->issueCommand($queryString);
         	
 	        $returnString = DB_SUCCESS;	        

@@ -288,7 +288,7 @@ class System
 			$dbInstance = $this->getDbInstance();
 			
 			$this->m_settingsArray = array();
-			$queryString = "select *, cast(`settingActive` as unsigned integer) as `activeFlag` from " . $tablePrefix . "site;";
+			$queryString = "select *, cast(`active` as unsigned integer) as `active_flag` from " . $tablePrefix . "site;";
 			if ($dbInstance->issueCommand($queryString) == true)
 			{
 				/* retrieve the results and populate our array */
@@ -300,7 +300,7 @@ class System
 					$setting->setId($row->id);
 					$setting->setName($row->setting);
 					$setting->setValue($row->value);
-					if ($row->activeFlag == 1)
+					if ($row->active_flag == 1)
 					{
 						$setting->setActive(true);
 					}
@@ -308,7 +308,7 @@ class System
 					{
 						$setting->setActive(false);
 					}
-					$setting->setTimeStamp($row->settingTimeStamp);
+					$setting->setTimeStamp($row->time_stamp);
 					$this->m_settingsArray[$row->setting] = $setting;
 				}
 				$dbInstance->releaseResults();
@@ -393,7 +393,7 @@ class System
 				
 				// Update the db
 				$queryString = "update " . $tablePrefix . "site set ";
-				$queryString .= "`settingActive`=b'";
+				$queryString .= "`active`=b'";
 				if ($active == true)
 				{
 					$queryString .= "1";
@@ -454,7 +454,7 @@ class System
 					$queryString = "update " . $tablePrefix . "site set `value`='" . $settingValue . "'";
 					if ($active != null)
 					{
-						$queryString .= ", `settingActive`=b'";
+						$queryString .= ", `active`=b'";
 						if ($active == true)
 						{
 							$queryString .= "1";
@@ -469,7 +469,7 @@ class System
 				}
 				else
 				{
-	        		$queryString = "insert into " . $tablePrefix . "site (`setting`, `value`, `settingActive`, `settingTimeStamp`) ";
+	        		$queryString = "insert into " . $tablePrefix . "site (`setting`, `value`, `active`, `time_stamp`) ";
 	        		$queryString .= "values ('" . $settingName . "', '" . $settingValue . "', b'";
 					if ($active == null)
 					{
@@ -501,8 +501,8 @@ class System
 							$setting->setId($row->id);
 							$setting->setName($row->setting);
 							$setting->setValue($row->value);
-							$setting->setActive($row->settingActive);
-							$setting->setTimeStamp($row->settingTimeStamp);
+							$setting->setActive($row->active_flag);
+							$setting->setTimeStamp($row->time_stamp);
 							$this->m_settingsArray[$row->setting] = $setting;
 						}
 						$dbInstance->releaseResults();

@@ -113,7 +113,7 @@ function createExtensionTable($replaceTable)
         $tableColumns[5]->setDefaultValue("'none'");
 
         $tableColumns[6] = new DBTableColumn();
-        $tableColumns[6]->setColumnName("extensionTimeStamp");
+        $tableColumns[6]->setColumnName("time_stamp");
         $tableColumns[6]->setColumnType("TIMESTAMP");
         $tableColumns[6]->setAllowNull(false);
      

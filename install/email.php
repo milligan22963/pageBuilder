@@ -53,7 +53,7 @@ function createEmailTable($replaceTable)
         $tableColumns[0]->setPrimaryKey(true);
 
         $tableColumns[1] = new DBTableColumn();
-        $tableColumns[1]->setColumnName("userId");
+        $tableColumns[1]->setColumnName("user_id");
         $tableColumns[1]->setColumnType("int");
         $tableColumns[1]->setTypeLength(11);
         $tableColumns[1]->setAllowNull(false);
@@ -66,21 +66,21 @@ function createEmailTable($replaceTable)
 
         /* either primary or not 1 if primary 0 otherwise */
         $tableColumns[3] = new DBTableColumn();
-        $tableColumns[3]->setColumnName("primaryAddr");
+        $tableColumns[3]->setColumnName("primary_addr");
         $tableColumns[3]->setColumnType("BIT");
         $tableColumns[3]->setTypeLength(1);
         $tableColumns[3]->setAllowNull(true);
         $tableColumns[3]->setDefaultValue("b'1'");
 
         $tableColumns[4] = new DBTableColumn();
-        $tableColumns[4]->setColumnName("emailActive");
+        $tableColumns[4]->setColumnName("active");
         $tableColumns[4]->setColumnType("BIT");
         $tableColumns[4]->setTypeLength(1);
         $tableColumns[4]->setAllowNull(true);
         $tableColumns[4]->setDefaultValue("b'0'");
         
         $tableColumns[5] = new DBTableColumn();
-        $tableColumns[5]->setColumnName("emailTimeStamp");
+        $tableColumns[5]->setColumnName("time_stamp");
         $tableColumns[5]->setColumnType("TIMESTAMP");
         $tableColumns[5]->setAllowNull(false);
       

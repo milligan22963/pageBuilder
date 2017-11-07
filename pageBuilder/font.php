@@ -15,18 +15,12 @@ class FontTypeData extends Data
 {
 	private $m_name;
 		        
-	function FontTypeData()
+	function __construct()
 	{
 		parent::Data();
 		
 		$this->reset();		
 	}
-	/*
-	function __construct()
-	{
-		$this->FontTypeData();
-	}
-	*/
 	
 	function reset()
 	{
@@ -73,7 +67,7 @@ class FontTypeData extends Data
 		$systemObject = getSystemObject();
 		$dbInstance = $systemObject->getDbInstance();
 
-		$queryString = "select *, cast(`active` as unsigned integer) as `activeFlag`";
+		$queryString = "select *, cast(`active` as unsigned integer) as `active_flag`";
 		$queryString .= " from " . $this->getTableName();
 		$queryString .= " where id=" . $fontTypeId;
 		$resourceId = 0;
@@ -103,19 +97,14 @@ class FontData extends Data
 	private $m_type;
 	private $m_name;
 	private $m_secondaryName;
-		        
-	function FontData()
-	{
-		parent::Data();
-		
-		$this->reset();		
-	}
-/*	
+
 	function __construct()
 	{
-		$this->FontData();
+		parent::Data();
+
+		$this->reset();
 	}
-	*/
+
 	function reset()
 	{
 		$this->m_type = null;
@@ -193,8 +182,8 @@ class FontData extends Data
 		parent::fromSql($resultSet);
 		
 		$this->setName($resultSet->name);
-		$this->setSecondaryName($resultSet->secondaryName);
-		$this->setTypeId($resultSet->fontType);
+		$this->setSecondaryName($resultSet->secondary_name);
+		$this->setTypeId($resultSet->font_type);
 	}
 	
 	function loadData($fontId)
@@ -205,7 +194,7 @@ class FontData extends Data
 		$systemObject = getSystemObject();
 		$dbInstance = $systemObject->getDbInstance();
 
-		$queryString = "select *, cast(`active` as unsigned integer) as `activeFlag`";
+		$queryString = "select *, cast(`active` as unsigned integer) as `active_flag`";
 		$queryString .= " from " . $this->getTableName();
 		$queryString .= " where id=" . $fontId;
 		$resourceId = 0;
@@ -257,9 +246,9 @@ class FontData extends Data
 			
 			$activeString = $active ? "b'1'" : "b'0'";
 			
-			$queryString = "select *, cast(`active` as unsigned integer) as `activeFlag` ";
+			$queryString = "select *, cast(`active` as unsigned integer) as `active_flag` ";
 			$queryString .= " from " . $fontObject->getTableName() . " where active=" . $activeString;
-			$queryString .= " ORDER BY timeStamp ASC";
+			$queryString .= " ORDER BY time_stamp ASC";
 			
 			$queryId = 0;
 			if ($dbInstance->issueCommand($queryString, $queryId) == true)

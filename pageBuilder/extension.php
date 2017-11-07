@@ -671,14 +671,14 @@ class Extension
 		$this->m_active = true;
 		$extResourceId = 0;
 		
-		$queryString = "select *, cast(`active` as unsigned integer) as `activeFlag` from " . $tablePrefix . "extension where `class`='" . $this->getName() . "' order by `instance` desc;";
+		$queryString = "select *, cast(`active` as unsigned integer) as `active_flag` from " . $tablePrefix . "extension where `class`='" . $this->getName() . "' order by `instance` desc;";
 		if ($dbInstance->issueCommand($queryString, $extResourceId) == true)
 		{
 			$resultSet = $dbInstance->getResult($extResourceId);
 			// if we don't have any then we are good to insert it
 			if ($resultSet->rowCount() == 0)
 			{
-				$queryString = "insert into " . $tablePrefix . "extension (`class`, `instance`, `active`, `extensionTimeStamp`) values ";
+				$queryString = "insert into " . $tablePrefix . "extension (`class`, `instance`, `active`, `time_stamp`) values ";
 				$queryString .= " ('" . $this->getName() . "', 1, b'1', CURRENT_TIMESTAMP);";
 				$dbInstance->issueCommand($queryString);
 			}
@@ -710,7 +710,7 @@ class Extension
 					if ($reuseInstance == 0)
 					{
 						$instanceValue++;
-						$queryString = "insert into " . $tablePrefix . "extension (`class`, `instance`, `active`, `extensionTimeStamp`) values ";
+						$queryString = "insert into " . $tablePrefix . "extension (`class`, `instance`, `active`, `time_stamp`) values ";
 						$queryString .= " ('" . $this->getName() . "'," . $instanceValue . ", b'1', CURRENT_TIMESTAMP);";
 						$dbInstance->issueCommand($queryString);
 					}
@@ -984,7 +984,7 @@ class ExtensionManager
 		$this->m_extensionArray[$extensionName] = $derivedExtension;
 		
 		// See if it has been activated yet
-		$queryString = "select *, cast(`active` as unsigned integer) as `activeFlag` from " . $tablePrefix . "extension where `class`='" . $extensionName . "'";
+		$queryString = "select *, cast(`active` as unsigned integer) as `active_flag` from " . $tablePrefix . "extension where `class`='" . $extensionName . "'";
 		$dbInstance = $systemObject->getDbInstance();
 		
 		$resourceId = 0;
@@ -1006,7 +1006,7 @@ class ExtensionManager
 				$extensionInstance->setInstance($row->instance);
 				
 				// Update this object with the active status etc
-				if ($row->activeFlag == 1)
+				if ($row->active_flag == 1)
 				{
 					$extensionInstance->load();
 					

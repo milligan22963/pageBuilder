@@ -64,7 +64,7 @@ function addFont($name, $secondaryName, $fontType)
 		$fontTypeId = $row->id;
 		
 	 	$queryString = "insert into " . $systemObject->getConfigurationData(SITE_TABLE_PREFIX);
-	    $queryString .= TABLE_NAME . "(`fontType`, `name`, `secondaryName`, `active`, `timeStamp`)";
+	    $queryString .= TABLE_NAME . "(`font_type`, `name`, `secondary_name`, `active`, `time_stamp`)";
 	    $queryString .= " values ('" . $fontTypeId . "', '" . $name . "', '" . $secondaryName . "', b'1', CURRENT_TIMESTAMP);";
 		$dbInstance->issueCommand($queryString);
 	}
@@ -115,7 +115,7 @@ function createFontTypesTable($replaceTable)
       $tableColumns[2]->setDefaultValue("b'1'");
       
       $tableColumns[3] = new DBTableColumn();
-      $tableColumns[3]->setColumnName("timeStamp");
+      $tableColumns[3]->setColumnName("time_stamp");
       $tableColumns[3]->setColumnType("TIMESTAMP");
       $tableColumns[3]->setAllowNull(false);
       
@@ -127,7 +127,7 @@ function createFontTypesTable($replaceTable)
        	foreach ($fontTypeArray as $fontType)
        	{
        		$queryString = "insert into " . $systemObject->getConfigurationData(SITE_TABLE_PREFIX);
-       		$queryString .= TABLE_NAME . "_types (`name`, `timeStamp`) values ('" . $fontType . "', CURRENT_TIMESTAMP);";
+       		$queryString .= TABLE_NAME . "_types (`name`, `time_stamp`) values ('" . $fontType . "', CURRENT_TIMESTAMP);";
 	       	$dbInstance->issueCommand($queryString);
        	}    	
 	    $returnString = DB_SUCCESS;	        
@@ -186,7 +186,7 @@ function createFontsTable($replaceTable)
         $tableColumns[0]->setPrimaryKey(true);
 
         $tableColumns[1] = new DBTableColumn();
-        $tableColumns[1]->setColumnName("fontType");
+        $tableColumns[1]->setColumnName("font_type");
         $tableColumns[1]->setColumnType("int");
         $tableColumns[1]->setTypeLength(11);
         $tableColumns[1]->setAutoIncrement(false);
@@ -198,7 +198,7 @@ function createFontsTable($replaceTable)
         $tableColumns[2]->setAllowNull(false);
         
         $tableColumns[3] = new DBTableColumn();
-        $tableColumns[3]->setColumnName("secondaryName");
+        $tableColumns[3]->setColumnName("secondary_name");
         $tableColumns[3]->setColumnType("varchar");
         $tableColumns[3]->setTypeLength(128);
         $tableColumns[3]->setAllowNull(false);
@@ -211,7 +211,7 @@ function createFontsTable($replaceTable)
         $tableColumns[4]->setDefaultValue("b'0'");
         
         $tableColumns[5] = new DBTableColumn();
-        $tableColumns[5]->setColumnName("timeStamp");
+        $tableColumns[5]->setColumnName("time_stamp");
         $tableColumns[5]->setColumnType("TIMESTAMP");
         $tableColumns[5]->setAllowNull(false);
       

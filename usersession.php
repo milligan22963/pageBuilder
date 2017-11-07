@@ -79,7 +79,19 @@ class UserSession
 						
 					$this->m_loggedIn = true;
 				}
+				else
+				{
+					error_log('User: ' . $userName . ' password fail');
+				}
 			}
+			else
+			{
+				error_log('User: ' . $userName . "isn't active.");
+			}
+		}
+		else
+		{
+			error_log('Cannot find user: ' . $userName);
 		}
 		return $this->m_loggedIn;
 	}

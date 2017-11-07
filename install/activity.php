@@ -84,15 +84,22 @@ function createActivityTable($replaceTable)
         $tableColumns[0]->setPrimaryKey(true);
 
         $tableColumns[1] = new DBTableColumn();
-        $tableColumns[1]->setColumnName("userId");
+        $tableColumns[1]->setColumnName("user_id");
         $tableColumns[1]->setColumnType("int");
         $tableColumns[1]->setTypeLength(11);
         $tableColumns[1]->setAllowNull(false);
 
         $tableColumns[2] = new DBTableColumn();
-        $tableColumns[2]->setColumnName("activityTimeStamp");
-        $tableColumns[2]->setColumnType("TIMESTAMP");
-        $tableColumns[2]->setAllowNull(false);
+        $tableColumns[2]->setColumnName("active");
+        $tableColumns[2]->setColumnType("BIT");
+        $tableColumns[2]->setTypeLength(1);
+        $tableColumns[2]->setAllowNull(true);
+        $tableColumns[2]->setDefaultValue("b'1'");
+
+        $tableColumns[3] = new DBTableColumn();
+        $tableColumns[3]->setColumnName("time_stamp");
+        $tableColumns[3]->setColumnType("TIMESTAMP");
+        $tableColumns[3]->setAllowNull(false);
       
         /* Create the table, the prefix will be added by the create call */
         if ($dbInstance->createTable(TABLE_NAME, $tableColumns, TABLE_DESCRIPTION) == true)
