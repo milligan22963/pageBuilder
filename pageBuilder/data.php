@@ -213,7 +213,7 @@ class Data extends ParamManager
 	function fromSql($resultSet)
 	{
 		$this->setId($resultSet->id);
-		if ($resultSet->activeFlag == 1)
+		if ($resultSet->active_flag == 1)
 		{
 			$this->setActive(true);
 		}
@@ -222,7 +222,7 @@ class Data extends ParamManager
 			$this->setActive(false);
 		}
 		
-		$this->setTimeStamp($resultSet->timeStamp);
+		$this->setTimeStamp($resultSet->time_stamp);
 	}
 	
 	/*
