@@ -101,8 +101,8 @@ class User
 			$tablePrefix = $systemObject->getConfigurationData(SITE_TABLE_PREFIX);
 			$dbInstance = $systemObject->getDbInstance();
 			
-			$queryString = "update " . $tablePrefix . "activity set `activityTimeStamp`=CURRENT_TIMESTAMP";
-			$queryString .= " where `userId`=" . $this->getUserId() . ";";
+			$queryString = "update " . $tablePrefix . "activity set `time_stamp`=CURRENT_TIMESTAMP";
+			$queryString .= " where `user_id`=" . $this->getUserId() . ";";
 			
 			$dbInstance->issueCommand($queryString);
 			
@@ -121,10 +121,10 @@ class User
 		{
 			error_log("User Id is: " . $resultSet->id);
 			$this->m_userId = $resultSet->id;
-			$this->m_userName = $resultSet->userName;
-			$this->m_userEncryptedPassword = $resultSet->userPassword;
-			$this->m_userType = $resultSet->userType;
-			if ($resultSet->activeFlag == 1)
+			$this->m_userName = $resultSet->user_name;
+			$this->m_userEncryptedPassword = $resultSet->user_password;
+			$this->m_userType = $resultSet->user_type;
+			if ($resultSet->active_flag == 1)
 			{
 				$this->m_userActive = true;
 			}
@@ -156,10 +156,10 @@ class User
 		$noEmail = false;
 		if ($dbInstance->doesTableExist("email") == true)
 		{
-			$queryString = "select tbl1.*, cast(`userActive` as unsigned integer) as `activeFlag`, tbl2.address from ";
+			$queryString = "select tbl1.*, cast(tbl1.`active` as unsigned integer) as `active_flag`, tbl2.address from ";
 			$queryString .= $tablePrefix . "email tbl2 inner join ";
 			$queryString .= $tablePrefix . "users tbl1 ";
-			$queryString .= "where tbl1.id = " . $dbId . " and tbl2.userId = tbl1.id and tbl2.primaryAddr = b'1';";
+			$queryString .= "where tbl1.id = " . $dbId . " and tbl2.user_id = tbl1.id and tbl2.primary_addr = b'1';";
 			
 			if ($dbInstance->issueCommand($queryString) == true)
 			{
@@ -185,7 +185,7 @@ class User
 		
 		if ($noEmail == true)
 		{
-			$queryString = "select *, cast(`userActive` as unsigned integer) as `activeFlag` from " . $tablePrefix . "users where id = " . $dbId . ";";
+			$queryString = "select *, cast(tbl1.`active` as unsigned integer) as `active_flag` from " . $tablePrefix . "users where id = " . $dbId . ";";
 			if ($dbInstance->issueCommand($queryString) == true)
 			{
 				$resultSet = $dbInstance->getResult();
@@ -214,10 +214,10 @@ class User
 		$noEmail = false;
 		if ($dbInstance->doesTableExist("email") == true)
 		{
-			$queryString = "select tbl1.*, cast(`userActive` as unsigned integer) as `activeFlag`, tbl2.address from ";
+			$queryString = "select tbl1.*, cast(tbl1.`active` as unsigned integer) as `active_flag`, tbl2.address from ";
 			$queryString .= $tablePrefix . "email tbl2 inner join ";
 			$queryString .= $tablePrefix . "users tbl1 ";
-			$queryString .= "where tbl1.userName = '" . $userName . "' and tbl2.userId = tbl1.id and tbl2.primaryAddr = b'1';";
+			$queryString .= "where tbl1.user_name = '" . $userName . "' and tbl2.user_id = tbl1.id and tbl2.primary_addr = b'1';";
 	
 			if ($dbInstance->issueCommand($queryString) == true)
 			{
@@ -251,7 +251,7 @@ class User
 		
 		if ($noEmail == true)
 		{
-			$queryString = "select *, cast(`userActive` as unsigned integer) as `activeFlag` from " . $tablePrefix . "users where userName ='" . $userName . "';";
+			$queryString = "select *, cast(`active` as unsigned integer) as `active_flag` from " . $tablePrefix . "users where user_name ='" . $userName . "';";
 			if ($dbInstance->issueCommand($queryString) == true)
 			{
 				$resultSet = $dbInstance->getResult();
@@ -279,10 +279,10 @@ class User
 		
 		if ($dbInstance->doesTableExist("email") == true)
 		{
-			$queryString = "select tbl1.*, cast(`userActive` as unsigned integer) as `activeFlag`, tbl2.address from ";
+			$queryString = "select tbl1.*, cast(`active` as unsigned integer) as `active_flag`, tbl2.address from ";
 			$queryString .= $tablePrefix . "email tbl2 inner join ";
 			$queryString .= $tablePrefix . "users tbl1 ";
-			$queryString .= "where tbl2.address = '" . $emailAddress . "' and tbl2.userId = tbl1.id and tbl2.primaryAddr = b'1';";
+			$queryString .= "where tbl2.address = '" . $emailAddress . "' and tbl2.user_id = tbl1.id and tbl2.primary_addr = b'1';";
 			
 			if ($dbInstance->issueCommand($queryString) == true)
 			{
@@ -315,7 +315,7 @@ class User
 				$this->m_userId = $userObject->getUserId();
 				
 				$queryString = "select * from " . $tablePrefix . "email where address='" . $this->m_userEmail;
-				$queryString .= "' and emailActive=b'1';";
+				$queryString .= "' and active=b'1';";
 				if ($dbInstance->issueCommand($queryString) == true)
 				{
 					// If we get back results then it already exists and is active.  This shouldn't be allowed.
@@ -325,7 +325,7 @@ class User
 					{
 						error_log("Adding in user email");
 						// Add in the email account if doesn't already exist
-						$queryString = "insert into " . $tablePrefix . "email (`userId`, `address`, `primaryAddr`, `emailActive`, `emailTimeStamp`)";
+						$queryString = "insert into " . $tablePrefix . "email (`user_id`, `address`, `primary_addr`, `active`, `time_stamp`)";
 						$queryString .= " values ('" . $this->m_userId . "', '" . $this->m_userEmail . "', b'1', b'1', NOW());";
 						$dbInstance->issueCommand($queryString);
 					}
@@ -457,7 +457,8 @@ class User
 	    $tableName = $tablePrefix . "users";
 		$storedPassword = User::generatePassword($textPassword);
 	
-	    $queryString = "select userName from " . $tableName . " where userPassword='$storedPassword';";
+		$queryString = "select user_name from " . $tableName . " where user_name='" . $userName . "' and user_password='$storedPassword';";
+		// error_log('Query: ' . $queryString);
 	    if ($dbInstance->issueCommand($queryString) == true)
 	    {
 			$resultSet = $dbInstance->getResult();
@@ -467,7 +468,7 @@ class User
 
 				if ($row != null)
 				{
-					if ($row->userName == $userName)
+					if ($row->user_name == $userName)
 					{
 						$success = true;
 					}
@@ -496,7 +497,7 @@ class User
 
 	    		$tableName = $tablePrefix . "users";
 
-			    $queryString = "update " . $tableName . " set `userActive`=b'1' where id=" . $userObject->getUserId() . ";";
+			    $queryString = "update " . $tableName . " set `active`=b'1' where id=" . $userObject->getUserId() . ";";
 			    if ($dbInstance->issueCommand($queryString) == true)
 			    {
 			    	$success = true;
@@ -525,7 +526,7 @@ class User
 
 	    		$tableName = $tablePrefix . "users";
 
-			    $queryString = "update " . $tableName . " set `userActive`=b'0' where id=" . $userObject->getUserId() . ";";
+			    $queryString = "update " . $tableName . " set `active`=b'0' where id=" . $userObject->getUserId() . ";";
 			    if ($dbInstance->issueCommand($queryString) == true)
 			    {
 			    	$success = true;
@@ -554,7 +555,7 @@ class User
 
 	    		$tableName = $tablePrefix . "users";
 
-			    $queryString = "update " . $tableName . " set `userType`='" . $userType . "' where id=" . $userObject->getUserId() . ";";
+			    $queryString = "update " . $tableName . " set `user_type`='" . $userType . "' where id=" . $userObject->getUserId() . ";";
 			    if ($dbInstance->issueCommand($queryString) == true)
 			    {
 			    	$success = true;
@@ -573,7 +574,7 @@ class User
 		$tablePrefix = $systemObject->getConfigurationData(SITE_TABLE_PREFIX);
 		$dbInstance = $systemObject->getDbInstance();
 		
-	    $queryString = "select userName from " . $tablePrefix . "users where userName='$userName';";
+	    $queryString = "select user_name from " . $tablePrefix . "users where user_name='$userName';";
 	    if ($dbInstance->issueCommand($queryString) == true)
 	    {
 			$resultSet = $dbInstance->getResult();
@@ -598,7 +599,7 @@ class User
 		$tablePrefix = $systemObject->getConfigurationData(SITE_TABLE_PREFIX);
 		$dbInstance = $systemObject->getDbInstance();
 		
-	    $queryString = "select userName from " . $tablePrefix . "users where userName='$userName';";
+	    $queryString = "select user_name from " . $tablePrefix . "users where user_name='$userName';";
 	    if ($dbInstance->issueCommand($queryString) == true)
 	    {
 			$resultSet = $dbInstance->getResult();
@@ -630,7 +631,7 @@ class User
 		$tablePrefix = $systemObject->getConfigurationData(SITE_TABLE_PREFIX);
 		$dbInstance = $systemObject->getDbInstance();
 		
-	    $queryString = "select userActive from " . $tablePrefix . "users where userName='$userName';";
+	    $queryString = "select active from " . $tablePrefix . "users where user_name='$userName';";
 	    if ($dbInstance->issueCommand($queryString) == true)
 	    {
 			$resultSet = $dbInstance->getResult();
@@ -705,7 +706,7 @@ class User
     
 	    if ($alreadyExists == false)
 	    {
-		    $queryString = "insert into " . $tableName . " (`userName`, `userPassword`, `userType`, `userActive`, `userTimeStamp`) ";
+		    $queryString = "insert into " . $tableName . " (`user_name`, `user_password`, `user_type`, `active`, `time_stamp`) ";
 		    $queryString .= "values ('$userName', '$storedPassword', '$userType', $activeFlag, CURRENT_TIMESTAMP);";
 		    if ($dbInstance->issueCommand($queryString) == true)
 		    {
@@ -714,13 +715,13 @@ class User
 	    }
 	    else
 	    { // since he already exists, we are good however something may have changed so we will update
-		    $queryString = "update " . $tableName . " set `userType`='". $userType . "', ";
-		    $queryString .= "`userActive`=" . $activeFlag . ", `userTimeStamp`=CURRENT_TIMESTAMP";
+		    $queryString = "update " . $tableName . " set `user_type`='". $userType . "', ";
+		    $queryString .= "`active`=" . $activeFlag . ", `time_stamp`=CURRENT_TIMESTAMP";
 		    if ($storedPassword != null)
 		    {
-			    $queryString .= ", `userPassword`='" . $storedPassword . "'";
+			    $queryString .= ", `user_password`='" . $storedPassword . "'";
 		    }
-		    $queryString .= " where `userName`='" . $userName . "';";
+		    $queryString .= " where `user_name`='" . $userName . "';";
 		    
 		    if ($dbInstance->issueCommand($queryString) == true)
 		    {
@@ -737,7 +738,7 @@ class User
 	    	if ($alreadyExists == false)
 	    	{		    	
 		    	/* Also add in the activity table entry */
-        		$queryString = "insert into " . $tablePrefix . "activity (`userId`, `activityTimeStamp`)";
+        		$queryString = "insert into " . $tablePrefix . "activity (`user_id`, `time_stamp`)";
         		$queryString .= " values (" . $userObject->getUserId() . ", CURRENT_TIMESTAMP);";
         		$dbInstance->issueCommand($queryString);
         		

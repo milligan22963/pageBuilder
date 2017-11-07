@@ -96,7 +96,7 @@ function createContentTable($replaceTable)
         $tableColumns[2]->setDefaultValue("b'0'");
         
         $tableColumns[3] = new DBTableColumn();
-        $tableColumns[3]->setColumnName("contentTimeStamp");
+        $tableColumns[3]->setColumnName("time_stamp");
         $tableColumns[3]->setColumnType("TIMESTAMP");
         $tableColumns[3]->setAllowNull(false);
       
@@ -105,7 +105,7 @@ function createContentTable($replaceTable)
         {
         	/* Add the home page (index) to the database */
         	$queryString = "insert into " . $systemObject->getConfigurationData(SITE_TABLE_PREFIX);
-        	$queryString .= TABLE_NAME . "(`name`, `active`, `contentTimeStamp`) values ('home', b'1', CURRENT_TIMESTAMP);";
+        	$queryString .= TABLE_NAME . "(`name`, `active`, `time_stamp`) values ('home', b'1', CURRENT_TIMESTAMP);";
         	$dbInstance->issueCommand($queryString);
         	
 	        $returnString = DB_SUCCESS;	        

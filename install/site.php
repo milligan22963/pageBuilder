@@ -87,14 +87,14 @@ function createSiteTable($replaceTable)
         $tableColumns[2]->setAllowNull(false);
 
         $tableColumns[3] = new DBTableColumn();
-        $tableColumns[3]->setColumnName("settingActive");
+        $tableColumns[3]->setColumnName("active");
         $tableColumns[3]->setColumnType("BIT");
         $tableColumns[3]->setTypeLength(1);
         $tableColumns[3]->setAllowNull(true);
         $tableColumns[3]->setDefaultValue("b'0'");
 
         $tableColumns[4] = new DBTableColumn();
-        $tableColumns[4]->setColumnName("settingTimeStamp");
+        $tableColumns[4]->setColumnName("time_stamp");
         $tableColumns[4]->setColumnType("TIMESTAMP");
         $tableColumns[4]->setAllowNull(false);
       
@@ -106,13 +106,13 @@ function createSiteTable($replaceTable)
         	
         	/* Default data is populated here */
         	$tableName = $tablePrefix . TABLE_NAME;
-        	$queryString = "insert into " . $tableName . " (`setting`, `value`, `settingActive`, `settingTimeStamp`) ";
+        	$queryString = "insert into " . $tableName . " (`setting`, `value`, `active`, `time_stamp`) ";
         	$queryString .= "values ('theme', 'default', b'1', CURRENT_TIMESTAMP);";
         	if ($dbInstance->issueCommand($queryString) != true)
         	{
         		$returnString = DB_TABLE_ENTRY_FAIL;
         	}
-        	$queryString = "insert into " . $tableName . " (`setting`, `value`, `settingActive`, `settingTimeStamp`) ";
+        	$queryString = "insert into " . $tableName . " (`setting`, `value`, `active`, `time_stamp`) ";
         	$queryString .= "values ('encryption', 'MD5', b'1', CURRENT_TIMESTAMP);";
         	if ($dbInstance->issueCommand($queryString) != true)
         	{

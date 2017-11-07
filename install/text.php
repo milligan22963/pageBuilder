@@ -78,15 +78,15 @@ function createTextTable($replaceTable)
 
        	// These are all of the user's defaults
        	$table->addTableColumn("id", DB_INT, 11, 0, false, 0, true, true);
-       	$table->addTableColumn("userId", DB_INT, 11);
-		$table->addTableColumn("userKey", DB_VARCHAR, 64, 0, false);
-       	$table->addTableColumn("langId", DB_VARCHAR, 8, 0, true, "'en_US'");
-		$table->addTableColumn("fontId", DB_INT, 11, 0, true);
-		$table->addTableColumn("fontSize", DB_INT, 4, 0, true, 12);
-		$table->addTableColumn("fontDecoration", DB_VARCHAR, 64, 0, true);
+       	$table->addTableColumn("user_id", DB_INT, 11);
+		$table->addTableColumn("user_key", DB_VARCHAR, 64, 0, false);
+       	$table->addTableColumn("lang_id", DB_VARCHAR, 8, 0, true, "'en_US'");
+		$table->addTableColumn("font_id", DB_INT, 11, 0, true);
+		$table->addTableColumn("font_size", DB_INT, 4, 0, true, 12);
+		$table->addTableColumn("font_decoration", DB_VARCHAR, 64, 0, true);
 		$table->addTableColumn("text", DB_VARCHAR, 1024, 0, true);
-        $table->addTableColumn("textColor", DB_VARCHAR, 8, 0, true, "000000"); // include RGB
-        $table->addTableColumn("textOpacity", DB_DECIMAL, 5, 2, true, 100.00);
+        $table->addTableColumn("text_color", DB_VARCHAR, 8, 0, true, "000000"); // include RGB
+        $table->addTableColumn("text_opacity", DB_DECIMAL, 5, 2, true, 100.00);
 
         /* create enum type for default position */
         $positionEnum = "enum(";
@@ -106,10 +106,10 @@ function createTextTable($replaceTable)
         $positionEnum .= ')';
 		$table->addTableColumn("position", $positionEnum, 0, 0, true, "'middle'");
 
-		$table->addTableColumn("offsetX", DB_INT, 4, 0, true, 0);
-		$table->addTableColumn("offsetY", DB_INT, 4, 0, true, 0);
+		$table->addTableColumn("offset_x", DB_INT, 4, 0, true, 0);
+		$table->addTableColumn("offset_y", DB_INT, 4, 0, true, 0);
         $table->addTableColumn("active", DB_BIT, 1, 0, true, "b'1'");
-        $table->addTableColumn("timeStamp", DB_TIMESTAMP);
+        $table->addTableColumn("time_stamp", DB_TIMESTAMP);
 			
         $table->setTableName(TABLE_NAME);
         $table->setTableDescription(TABLE_DESCRIPTION);

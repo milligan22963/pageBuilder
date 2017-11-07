@@ -84,33 +84,33 @@ function createUsersTable($replaceTable)
         $tableColumns[0]->setPrimaryKey(true);
 
         $tableColumns[1] = new DBTableColumn();
-        $tableColumns[1]->setColumnName("userName");
+        $tableColumns[1]->setColumnName("user_name");
         $tableColumns[1]->setColumnType("varchar");
         $tableColumns[1]->setTypeLength(128);
         $tableColumns[1]->setAllowNull(true);
         $tableColumns[1]->setDefaultValue("' '");
 
         $tableColumns[2] = new DBTableColumn();
-        $tableColumns[2]->setColumnName("userPassword");
+        $tableColumns[2]->setColumnName("user_password");
         $tableColumns[2]->setColumnType("varchar");
         $tableColumns[2]->setTypeLength(128);
         $tableColumns[2]->setAllowNull(false);
 
         $tableColumns[3] = new DBTableColumn();
-        $tableColumns[3]->setColumnName("userType");
+        $tableColumns[3]->setColumnName("user_type");
         $tableColumns[3]->setColumnType("enum('admin', 'debug', 'user', 'support', 'other')");
         $tableColumns[3]->setAllowNull(true);
         $tableColumns[3]->setDefaultValue("'other'");
 
         $tableColumns[4] = new DBTableColumn();
-        $tableColumns[4]->setColumnName("userActive");
+        $tableColumns[4]->setColumnName("active");
         $tableColumns[4]->setColumnType("BIT");
         $tableColumns[4]->setTypeLength(1);
         $tableColumns[4]->setAllowNull(true);
         $tableColumns[4]->setDefaultValue("b'0'");
 
         $tableColumns[5] = new DBTableColumn();
-        $tableColumns[5]->setColumnName("userTimeStamp");
+        $tableColumns[5]->setColumnName("time_stamp");
         $tableColumns[5]->setColumnType("TIMESTAMP");
         $tableColumns[5]->setAllowNull(false);
       

@@ -28,11 +28,6 @@ class TextData extends Data
 		        
 	function __construct()
 	{
-		$this->TextData();
-	}
-	
-	function TextData()
-	{
 		parent::Data();
 		
 		$this->reset();		
@@ -222,18 +217,18 @@ class TextData extends Data
 	{
 		parent::fromSql($resultSet);
 		
-		$this->setUserId($resultSet->userId);
-		$this->setUserKey($resultSet->userKey);
-		$this->setLangId($resultSet->langId);
-		$this->setFontId($resultSet->fontId);
+		$this->setUserId($resultSet->user_id);
+		$this->setUserKey($resultSet->user_key);
+		$this->setLangId($resultSet->lang_id);
+		$this->setFontId($resultSet->font_id);
 		$this->setText($resultSet->text);
-		$this->setTextColor($resultSet->textColor);
-		$this->setTextOpacity($resultSet->textOpacity);
-		$this->setFontSize($resultSet->fontSize);
-		$this->setFontDecoration($resultSet->fontDecoration);
+		$this->setTextColor($resultSet->text_color);
+		$this->setTextOpacity($resultSet->text_opacity);
+		$this->setFontSize($resultSet->font_size);
+		$this->setFontDecoration($resultSet->font_decoration);
 		$this->setTextPosition($resultSet->position);
-		$this->setOffsetX($resultSet->offsetX);
-		$this->setOffsetY($resultSet->offsetY);
+		$this->setOffsetX($resultSet->offset_x);
+		$this->setOffsetY($resultSet->offset_y);
 	}
 	
 	function loadData($textId)
@@ -244,7 +239,7 @@ class TextData extends Data
 		$systemObject = getSystemObject();
 		$dbInstance = $systemObject->getDbInstance();
 
-		$queryString = "select *, cast(`active` as unsigned integer) as `activeFlag`";
+		$queryString = "select *, cast(`active` as unsigned integer) as `active_flag`";
 		$queryString .= " from " . $this->getTableName();
 		$queryString .= " where id=" . $textId;
 		$resourceId = 0;
@@ -284,13 +279,13 @@ class TextData extends Data
 			if ($textId == NEW_DATABASE_ITEM)
 			{
 				$queryString = "insert into " . $this->getTableName();
-				$queryString .= " (`userId`, `userKey`,";
-				$queryString .= " `langId`, `fontId`,";
-				$queryString .= " `fontSize`, `fontDecoration`,";
-				$queryString .= " `text`, `textColor`,";
-				$queryString .= " `textOpacity`, `position`,";
-				$queryString .= " `offsetX`, `offsetY`,";
-				$queryString .= " `active`, `timeStamp`)";
+				$queryString .= " (`user_id`, `user_key`,";
+				$queryString .= " `lang_id`, `font_id`,";
+				$queryString .= " `font_size`, `font_decoration`,";
+				$queryString .= " `text`, `text_color`,";
+				$queryString .= " `text_opacity`, `position`,";
+				$queryString .= " `offset_x`, `offset_y`,";
+				$queryString .= " `active`, `time_stamp`)";
 				$queryString .= " values ('" . $this->getUserId() . "', '" . $this->getUserKey();
 				$queryString .= "', '" . $this->getLangId() . "', '" . $this->getFontId();
 				$queryString .= "', '" . $this->getFontSize() . "', '" . $this->getFontDecoration(); 
@@ -307,14 +302,14 @@ class TextData extends Data
 				$activeString = $this->getActive() ? "b'1'" : "b'0'";
 								
 				$queryString = "update " . $this->getTableName();
-				$queryString .= " set `langId`='" . $this->getLangId() . "', `fontId`='" . $this->getFontId() . "', ";
-				$queryString .= "`fontSize`='" . $this->getFontSize() . "', `fontDecoration`='" . $this->getFontDecoration() . "', ";
-				$queryString .= "`text`='" . $this->getText() . "', `textColor`='" . $this->getTextColor() . "', ";
-				$queryString .= "`textOpacity`='" . $this->getTextOpacity() . "', `position`='" . $this->getTextPosition() . "', ";
-				$queryString .= "`offsetX`='" . $this->getOffsetX() . "', `offsetY`='" . $this->getOffsetY() . "', ";
+				$queryString .= " set `lang_id`='" . $this->getLangId() . "', `font_id`='" . $this->getFontId() . "', ";
+				$queryString .= "`font_size`='" . $this->getFontSize() . "', `font_decoration`='" . $this->getFontDecoration() . "', ";
+				$queryString .= "`text`='" . $this->getText() . "', `text_color`='" . $this->getTextColor() . "', ";
+				$queryString .= "`text_opacity`='" . $this->getTextOpacity() . "', `position`='" . $this->getTextPosition() . "', ";
+				$queryString .= "`offset_x`='" . $this->getOffsetX() . "', `offset_y`='" . $this->getOffsetY() . "', ";
 				$queryString .= "`active`=" . $activeString;
 				$queryString .= " where id='" .  $textId . "'";
-				$queryString .= " and userId='" . $userId . "';";
+				$queryString .= " and user_id='" . $userId . "';";
 				$dbInstance->issueCommand($queryString);
 //				error_log($queryString);
 			}
@@ -336,7 +331,7 @@ class TextData extends Data
 
 			$queryString = "delete from " . $textObject->getTableName();
 			$queryString .= " where id='" . $id . "'";
-			$queryString .= " and userId='" . $userId . "';";
+			$queryString .= " and user_id='" . $userId . "';";
 			$dbInstance->issueCommand($queryString);
 		}		
 	}
@@ -369,13 +364,13 @@ class TextData extends Data
 			
 			$activeString = $active ? "b'1'" : "b'0'";
 			
-			$queryString = "select *, cast(`active` as unsigned integer) as `activeFlag` ";
+			$queryString = "select *, cast(`active` as unsigned integer) as `active_flag` ";
 			$queryString .= " from " . $textObject->getTableName() . " where active=" . $activeString;
 			if ($userKey != null)
 			{
-				$queryString .= " and userKey='" . $userKey . "'";
+				$queryString .= " and user_key='" . $userKey . "'";
 			}
-			$queryString .= " ORDER BY timeStamp ASC";
+			$queryString .= " ORDER BY time_stamp ASC";
 			
 			$queryId = 0;
 			if ($dbInstance->issueCommand($queryString, $queryId) == true)
