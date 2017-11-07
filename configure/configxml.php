@@ -4,14 +4,14 @@
  */
  function getConfigData()
  {
-	 $dbWord = 'Sug@rP0pMu$1c';
+	 $dbWord = 'your_pwd';
 	 
 	$configData =<<<XML_CONFIG_DATA
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet href="config.xsl" type="text/xsl" ?>
 <afm:configuration xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:afm="http://www.afmsoftware.com/config" xsi:schemaLocation="http://www.afmsoftware.com/config config.xsd ">
   <afm:database>
-    <afm:option name="DB_USER_NAME" value="psikick" />
+    <afm:option name="DB_USER_NAME" value="user" />
     <afm:option name="DB_PASSWORD" value="$dbWord" />
     <afm:option name="DB_SYSTEM" value="MYSQLi" />
     <afm:option name="DB_HOST_NAME" value="localhost" />
