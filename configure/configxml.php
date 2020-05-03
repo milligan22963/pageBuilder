@@ -45,7 +45,7 @@
 	<afm:option name="SITE_ADMIN_EMAIL" value="dwm@afmsoftware.com" />
 	
 	<!-- The main root for the site -->
-    <afm:option name="SITE_ROOT_PATH" value="site"></afm:option>
+    <afm:option name="SITE_ROOT_PATH" value=""></afm:option>
     <afm:option name="SITE_ADMIN_PATH" value="admin" />
     <afm:option name="SITE_CONTENT_PATH" value="assets" />
     
